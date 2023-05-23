@@ -23,6 +23,10 @@ var questions = [
     answer: "True"
 }
 ]
+function next(){
+    currentquestion++
+    questiontext.textContent = questions[currentquestion].question
+}
 function starttimer(){
     timeremaining=15
     intervel=setInterval(function(){
@@ -45,5 +49,6 @@ mainarea.appendChild(falsebutton)
 truebutton.textContent="true"
 falsebutton.textContent="false"
 questiontext.textContent=questions[0].question
-
+truebutton.addEventListener("click",next())
+falsebutton.addEventListener("click",next())
 })
