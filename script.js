@@ -23,6 +23,11 @@ var questions = [
     answer: "True"
 }
 ]
+function gameover (){
+    if (timeremaining <= 0 || currentquestion >= questions.length){
+    
+    }
+}
 function next(){
     currentquestion++
     questiontext.textContent = questions[currentquestion].question
@@ -31,7 +36,7 @@ function starttimer(){
     timeremaining=15
     intervel=setInterval(function(){
         timeremaining--
-        timerelement.textContent=timeremaining
+        timerelement.textContent=`TIME REMAINING ${timeremaining}`
     if (timeremaining <= 0){
         clearInterval (intervel)
     }
@@ -49,6 +54,6 @@ mainarea.appendChild(falsebutton)
 truebutton.textContent="true"
 falsebutton.textContent="false"
 questiontext.textContent=questions[0].question
-truebutton.addEventListener("click",next())
-falsebutton.addEventListener("click",next())
+truebutton.addEventListener("click",next)
+falsebutton.addEventListener("click",next)
 })
