@@ -29,6 +29,11 @@ function gameover (){
 }
 function next(event){
     console.log(event)
+    if (event.target.textContent == questions[currentquestion].answer){
+        score++
+    } else {
+        
+    }
     currentquestion++
     questiontext.textContent = questions[currentquestion].question
 }
