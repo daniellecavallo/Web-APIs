@@ -9,19 +9,19 @@ var score = 0
 var questions = [
 {
     question: "Did Steve Jobs write code?",
-    answer: "False"
+    answer: "false"
 },
 {
     question: "Did Steve Jobs choose to sell the first Macintosh computer for $666. 66 because of the repeating numbers?",
-    answer: "True"
+    answer: "true"
 },
 {
     question: "When using a computers Terminal are you directly commanding the computer instead of using a graphic?",
-    answer: "True"
+    answer: "true"
 },
 {
     question: "Is CSS used to give the content from HTML style?",
-    answer: "True"
+    answer: "true"
 }
 ]
 function gameover (){
@@ -32,7 +32,7 @@ function next(event){
     if (event.target.textContent == questions[currentquestion].answer){
         score++
     } else {
-        
+        timeremaining--
     }
     currentquestion++
     questiontext.textContent = questions[currentquestion].question
