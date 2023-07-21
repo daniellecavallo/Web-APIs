@@ -5,6 +5,7 @@ var questiontext = document.getElementById("question")
 var intervel; 
 var timeremaining; 
 var currentquestion = 0
+var score = 0
 var questions = [
 {
     question: "Did Steve Jobs write code?",
@@ -24,11 +25,10 @@ var questions = [
 }
 ]
 function gameover (){
-    if (timeremaining <= 0 || currentquestion >= questions.length){
-    
-    }
+    questiontext.textContent = `FINAL SCORE ${score}`
 }
-function next(){
+function next(event){
+    console.log(event)
     currentquestion++
     questiontext.textContent = questions[currentquestion].question
 }
@@ -37,9 +37,11 @@ function starttimer(){
     intervel=setInterval(function(){
         timeremaining--
         timerelement.textContent=`TIME REMAINING ${timeremaining}`
-    if (timeremaining <= 0){
-        clearInterval (intervel)
-    }
+        if (timeremaining <= 0 || currentquestion >= questions.length){
+            clearInterval (intervel)
+            localStorage.setItem("high score" , score)
+            gameover()
+            }
     },1000) 
 }
 startbutton.addEventListener("click",function(){
